@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perfil do Usuário</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #eaeeb1;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .top-bar {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* ocupa a altura total da tela */
+      }
+
+      .button-link {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #000000;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .button-link:hover {
+        background-color: #868686;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Informações do usuário no canto superior esquerdo -->
+      <div class="top-bar">
+        <h2>Perfil do Usuário</h2>
+        <p><strong>ID:</strong> 8273</p>
+        <p><strong>Nome:</strong> Julia Melo</p>
+        <p><strong>Email:</strong> julia.melo@email.com</p>
+        <p><strong>Tipo:</strong> Passageiro</p>
+      </div>
+
+      <!-- Botão centralizado -->
+      <div class="center-content">
+        <a class="button-link" href="solicitar_corrida.html"
+          >Solicitar Corrida</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
