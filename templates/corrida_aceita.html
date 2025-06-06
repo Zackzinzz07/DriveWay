@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel do Motorista</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#eaeeb1; margin:0; padding:40px; }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    th, td { padding:12px; border:1px solid #ccc; text-align:center; }
+    th { background:#000; color:#fff; }
+    a.botao, button { padding:6px 14px; background:#000; color:#fff;
+                      border:none; text-decoration:none; border-radius:6px; }
+    a.botao:hover, button:hover { background:#666; }
+  </style>
+</head>
+<body>
+  <h2>Corridas pendentes</h2>
+
+  {% if corridas %}
+    <table>
+      <tr>
+        <th>ID</th><th>Origem</th><th>Destino</th><th>Preço</th><th>Ação</th>
+      </tr>
+      {% for c in corridas %}
+        <tr>
+          <td>{{ c.id }}</td>
+          <td>{{ c.origem }}</td>
+          <td>{{ c.destino }}</td>
+          <td>R$ {{ '%.2f'|format(c.preco) }}</td>
+          <td>
+            <form action="{{ url_for('aceitar_corrida',
+                                     corrida_id=c.id,
+                                     motorista_id=usuario_id) }}"
+                  method="post" style="display:inline;">
+              <button type="submit">Aceitar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Não há corridas pendentes no momento.</p>
+  {% endif %}
+
+  <br>
+  <a class="botao" href="{{ url_for('perfil', usuario_id=usuario_id) }}">Voltar ao perfil</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Corrida Confirmada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d7ffd9;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .msg {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        a {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h2>Corrida Solicitada com Sucesso!</h2>
+    <p class="msg">Em breve, um motorista será designado.</p>
+
+    <a href="{{ url_for('perfil', usuario_id=usuario_id) }}">Voltar para o Perfil</a>
+</body>
+</html>

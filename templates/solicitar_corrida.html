@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Corrida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeeb1;
+            text-align: center;
+            padding: 50px;
+        }
+
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #868686;
+        }
+    </style>
+</head>
+<body>
+    <h2>Solicitar Corrida</h2>
+    <p>Preencha os dados abaixo para solicitar uma corrida:</p>
+
+    <form method="post" action="/solicitar_corrida">
+        <input type="hidden" name="passageiro_id" value="{{ usuario_id }}">
+        <input type="text" name="origem" placeholder="Origem" required><br>
+        <input type="text" name="destino" placeholder="Destino" required><br>
+        <button type="submit">Solicitar</button>
+    </form>
+</body>
+</html>

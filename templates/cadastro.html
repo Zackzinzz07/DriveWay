@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeeb1;
+            text-align: center;
+            padding: 50px;
+        }
+        input, select {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #868686;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cadastro de Usuário</h2>
+
+        <p style="color: red;"></p>
+   
+
+    <form method="post" action="/cadastro">
+        <input type="text" name="nome" placeholder="Nome completo" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="senha" placeholder="Senha" required><br>
+        <select name="tipo">
+            <option value="passageiro">Passageiro</option>
+            <option value="motorista">Motorista</option>
+        </select><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p>Já possui uma conta?</p>
+    <a href="/login">Login</a>
+</body>
+</html>

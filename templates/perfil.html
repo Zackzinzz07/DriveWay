@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perfil do Usuário</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #eaeeb1;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .top-bar {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .button-link {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #000000;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .button-link:hover {
+        background-color: #868686;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% if usuario %}
+      <div class="top-bar">
+        <h2>Perfil do Usuário</h2>
+        <p><strong>ID:</strong> {{ usuario.id }}</p>
+        <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+        <p><strong>Email:</strong> {{ usuario.email }}</p>
+        <p><strong>Tipo:</strong> {{ usuario.tipo }}</p>
+      </div>
+      <div class="center-content">
+        {% if usuario and usuario.tipo == 'passageiro' %}
+        <div class="center-content">
+          <a
+            class="button-link"
+            href="{{ url_for('pagina_solicitar_corrida', usuario_id=usuario.id) }}"
+            >Solicitar Corrida</a
+          >
+        </div>
+        {% elif usuario and usuario.tipo == 'motorista' %}
+        <div class="center-content">
+          <a
+            class="button-link"
+            href="{{ url_for('dashboard_motorista', usuario_id=usuario.id) }}"
+            >Dashboard do Motorista</a
+          >
+        </div>
+        {% endif %}
+      </div>
+      {% else %}
+      <div class="center-content">
+        <p>Usuário não encontrado.</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

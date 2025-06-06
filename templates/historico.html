@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Corridas</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeeb1;
+            text-align: center;
+            padding: 50px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 10px 15px;
+        }
+        th {
+            background-color: #ddd;
+        }
+        a {
+            margin: 10px;
+            padding: 12px 24px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        a:hover {
+            background-color: #868686;
+        }
+    </style>
+</head>
+<body>
+    <h2>Histórico de Corridas</h2>
+
+    
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Passageiro</th>
+                <th>Motorista</th>
+                <th>Origem</th>
+                <th>Destino</th>
+                <th>Status</th>
+                <th>Preço</th>
+                <th>Avaliação</th>
+            </tr>
+           
+            <tr>
+                <td>{{ corrida[0] }}</td>
+                <td>{{ corrida[1] }}</td>
+                <td>{{ corrida[2] }}</td>
+                <td>{{ corrida[3] }}</td>
+                <td>{{ corrida[4] }}</td>
+                <td>{{ corrida[5] }}</td>
+                <td>R${{ "%.2f"|format(corrida[6]) }}</td>
+                <td>{{ corrida[7] if corrida[7] else "Não avaliada" }}</td>
+            </tr>
+            
+        </table>
+   
+        <p>Sem corridas registradas.</p>
+   
+</body>
+</html>

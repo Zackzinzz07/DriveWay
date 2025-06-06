@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Corrida em Andamento</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f6f6f6; text-align:center; padding:50px; }
+    .box { background:#fff; padding:30px; border-radius:12px; display:inline-block; box-shadow:0 0 10px rgba(0,0,0,.2); }
+    .botao { display:inline-block; margin-top:20px; padding:10px 20px; background:#000; color:#fff; border:none; border-radius:8px; text-decoration:none; }
+    .botao:hover { background:#444; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Corrida em Andamento</h2>
+    <p><strong>Origem:</strong> {{ corrida.origem }}</p>
+    <p><strong>Destino:</strong> {{ corrida.destino }}</p>
+    <p><strong>Status:</strong> {{ corrida.status }}</p>
+
+    <form method="post"
+          action="{{ url_for('finalizar_corrida',
+                             corrida_id=corrida.id,
+                             motorista_id=motorista_id) }}">
+      <button class="botao" type="submit">Finalizar Corrida</button>
+    </form>
+  </div>
+</body>
+</html>
